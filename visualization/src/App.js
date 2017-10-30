@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { LineChart, Line, YAxis } from 'recharts';
+import { LineChart, Line, YAxis, XAxis } from 'recharts';
 
 const btc = [
   {date: "10/24/2017", value: 5509.50},
@@ -29,12 +29,14 @@ class App extends Component {
         <h2>BTC/USD</h2>
         <LineChart width={400} height={200} data={btc}>
           <Line type="monotone" dataKey="value" stroke="#f00" />
-          <YAxis type="number" hide={true} domain={['dataMin - 200', 'dataMax + 200']} />
+          <XAxis dataKey="date"/>
+          <YAxis allowDecimals={false} type="number" domain={['dataMin - 200', 'dataMax + 200']} />
         </LineChart>
         <h2>ETH/USD</h2>
         <LineChart width={400} height={200} data={eth}>
           <Line type="monotone" dataKey="value" stroke="#00f" />
-          <YAxis type="number" hide={true} domain={['dataMin - 10', 'dataMax + 10']} />
+          <XAxis dataKey="date"/>
+          <YAxis allowDecimals={false} type="number" domain={['dataMin - 10', 'dataMax + 10']} />
         </LineChart>
 
       </div>
